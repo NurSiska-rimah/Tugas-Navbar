@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Navbar</title>
+    <style>
+        body {
+             margin: 0;
+             font-family: Arial, sans-serif;  
+            }
+
+        .navbar {
+            background-color: #6eac3b;
+            color: #fff;
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;   
+padding: 0 20px;
+        }
+
+        .logo a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+            position: relative;
+            width: 30px;
+            height: 21px;
+            z-index: 1001;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .menu-toggle .bar {
+            background-color: #fff; height: 3px;  width: 100%;   transition: all 0.3s ease;
+        }
+
+        .nav-links {
+            list-style: none; display: flex;  margin: 0;  padding: 0;
+        }
+
+        .nav-links li {  margin: 0 15px; }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover { color: #ddd; }
+
+        /* Responsive styles */
+        @media (max-width: 768px) { 
+            .menu-toggle {
+                display: flex;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background-color: #57692d;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                z-index: 1000;
+                padding: 0;
+            }
+
+            .nav-links.active { display: flex; }
+            .nav-links li {  margin: 15px 0;  text-align: center; }
+            .nav-links a { font-size: 20px; }
+        }
+
+        /* Hide menu-toggle on larger screens */
+        @media (min-width: 769px) {
+            .menu-toggle {
+                display: none;
+            }
+        }
+
+        /* Hero Section */
+        .hero {
+            display: flex;  height: auto; margin-top: 60px; padding: 10px 20px;
+            box-sizing: border-box;
+            background-color: rgb(161, 184, 160);
+        }
+
+        .hero-col {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            box-sizing: border-box;
+            border: 5px solid #ddd;
+            border-radius: 10px;
+            margin: 10px;
+            background-color: #f4eeee;
+        }
+
+        .hero-col.left {
+            flex: 1;
+        }
+
+        .hero-col.right {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .hero-col.right img {
+            max-width: 100%;
+            height: auto;
+            border: 5px solid #f1ebeb;
+            border-radius: 10px;
+        }
+
+        .hero-col.left h1 {
+            margin: 0;
+            font-size: 36px;
+        }
+
+        .hero-col.left p {
+            font-size: 24px;
+            margin: 0;
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                flex-direction: column;
+            }
+
+            .hero-col {
+                margin: 0;
+                padding: 20px;
+            }
+
+            .hero-col.left {
+                text-align: center;
+            }
+
+            .hero-col.right {
+                margin-top: 20px;
+            }
+        }
+
+ /* About Section */
+        .about { padding: 60px 20px; background-color: #f4f4f4;  text-align: center; }
+        .about h2 { font-size: 36px; margin-bottom: 20px; }
+        .about p { font-size: 18px; line-height: 1.6; margin: 0 auto; max-width: 800px; }
+
+    </style>
+</head>
+
+
+
+
+
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <a href="#">MyWebsite</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#contact">Contact</a></i>
+                <li><a href="#login">Login</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-col left">
+            <section class="home" id="home">
+            <div>
+                <h1>Welcome to</h1>
+                <p>My Personal Website</p>
+            </div>
+        </div>
+        <div class="hero-col right">
+            <img>
+            <a href="https://imgbb.com/"><img src="https://i.ibb.co.com/NsP9Pby/Gambar-Whats-App-2024-09-08-pukul-11-08-46-2051b7d4.jpg" alt="Gambar-Whats-App-2024-09-08-pukul-11-08-46-2051b7d4" border="0"></a>
+             </div>
+    </section>
+
+<!-- About Section -->
+<section class="about" id="about">
+    <h2>Tentang Saya</h2>
+    <p> Halo, saya Nur Siskarimah, biasa dipanggil Siska. Saya siswi kelas 10 dari sekolah SMKN 1 Ciomas, jurusan PPLG. Saya tinggal di kp ciapus, RT/RW 01/01, desa Sukamakmur, kabupaten Bogor.</p>
+    <br><br>
+
+    <section class="skills" id="skills">
+    <h2>Skills Saya</h2>
+    <p>Ms-Windows------------------------75%</p>
+    <p>Ms-word---------------------------77%</p>
+    <p>Ms-Excel--------------------------75%</p>
+    <p>Power point-------------------------0%</p>
+    <p>HTML------------------------------78%</p>
+    <p>CSS-------------------------------58%</p>
+    <p>JavaScript------------------------0%</p>
+    </section><br><br>
+
+    <section class="portfolio" id="portfolio">
+    <h2>Portfolio</h2>
+        <p>saya sudah pernah mengerjakan beberapa tugas yang diberikan salah satu guru PPLG saya, seperti tugas membuat table, navbar, dan HTML form</p>
+    </section><br><br>
+
+    <section class="contact" id="contact">
+    <h2>Section Contact</h2>
+    <p> Anda bisa menghubungi saya melalu:</p>
+    <style>
+        table {
+          font-family: arial, sans-serif;
+          border-collapse: collapse;
+          width: 100%;
+        }
+    
+        th,
+        td {
+          border: 2px solid black;
+          text-align: left;
+          padding: 8px;
+        }
+    
+        tr:nth-child(even) {
+          background-color: #dddd;
+          
+          table, th, td 
+           border:1px solid black;
+        }
+      </style>
+    
+      <table>
+      <tr>
+        <th>Name</th>
+        <td>Nur Siskarimah</td>
+        </tr>
+
+        <tr>
+            <th>Phone Number</th>
+            <td>081400640xxx</td>
+            </tr>
+          
+        <tr>
+          <th>Instagram Account</th>
+          <td>@justxnsr</td>
+        </tr>
+    
+    <tr>
+    <th>Email</th>
+    <td>nursiska5680@gmail.com</td>
+    </tr>
+    </table>
+    </section>
+    <section class="login" id="login"><br>
+        <br>
+
+    <h2>Tampilan Login</h2>
+    <style>
+        *{
+        margin: 0;
+        padding: 0px;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    
+    form{
+        width: 300px;
+        border: 1px solid rgb(59, 145, 9);
+        margin: 40px auto;
+        padding: 20px;
+        border-radius: 10px;
+    }
+    
+    input {
+        display: block;
+        width: 100%;
+        height: 28px;
+        padding: 5px;
+        margin-top: 20px;
+        box-sizing: border-box;
+    }
+    
+    button {
+        border: none;
+        outline: none;
+        width: 100px;
+        padding: 5px;
+        cursor: pointer;
+        margin-top: 10px;
+        background: #208538;
+    }
+    
+    button:hover{
+        background: #cd1f1f;
+    }
+    </style>
+    </head>
+        <form action="">
+            <h3>LOGIN</h3>
+            <input type="text" placeholder="example@gmail.com">
+            <input type="Password" placeholder="Password">
+            <button type="submit">Login</button>
+        </form>
+    </section>
+
+    
+
+<script>       
+document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.getElementById('menu-toggle');
+            const navLinks = document.getElementById('nav-links');
+            menuToggle.addEventListener('click', function() {
+                  navLinks.classList.toggle('active');
+            });
+            
+            // Menambahkan event listener untuk setiap link dalam menu
+            navLinks.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', function() {
+                navLinks.classList.remove('active'); // Menutup menu setelah item diklik
+                });
+            });
+        });
+ </script>
+</body>
+</html> 
+
